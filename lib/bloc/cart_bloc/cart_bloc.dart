@@ -70,7 +70,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     updatePreferences();
   }
 
-  void _onDeleteFromCart(DeleteFromCart event, Emitter<CartState> emit) {
+  Future<void> _onDeleteFromCart(
+      DeleteFromCart event, Emitter<CartState> emit) async {
     cartItemList.removeWhere((element) => element.item == event.cartItem.item);
     emit(LoadedCart(cartItems: cartItemList));
     updatePreferences();

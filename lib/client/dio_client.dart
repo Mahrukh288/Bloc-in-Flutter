@@ -17,10 +17,6 @@ class DioClient {
         obj = Item.fromJson(jsonProductList[i]);
         items.add(obj);
       }
-      for (int i = 0; i < items.length; i++) {
-        print(items[i].name);
-      }
-      //print('Item Info:  ${itemData.data}');
     } on DioError catch (e) {
       if (e.response != null) {
         print('Error Status: ${e.response?.statusCode}');
